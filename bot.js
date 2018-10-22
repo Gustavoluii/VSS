@@ -98,7 +98,32 @@ bot.on("message", async message => {
         message.channel.send(skinembed);
 
     }
-
+    
+        if(cmd === `${prefix}ban`){
+        let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        if(!bUser) return message.channel.send("`❌ Membro não encontrado`").then(msg => msg.delete(10000));
+        let bReason = args.join(" ").slice(22);
+        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("`❌ Você não tem permissão!`");
+        if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("`❌ Eu não posso banir essa pessoa.`");
+     
+        let banEmbed = new Discord.RichEmbed()
+        .setThumbnail(bUser.user.displayAvatarURL)
+        .addField("`👤 | Membro Banido:`", `${bUser}`, true)
+        .addField("`👨‍💼 | Banido por:`", `<@${message.author.id}>`, true)
+        .addField("`📦 | Membro ID:`", `${bUser.id}`, true)
+        .addField("`📋 | Banido no canal:`", `${message.channel}`, true)
+        .addField("`📂 | Motivo:`", `${bReason}`, true)
+        .setColor("#b70f0f")
+     
+        let incidentchannel = message.guild.channels.find(c => c.name == "🔴punições");
+        if(!incidentchannel) return message.channel.send("`❌ Não foi possível encontrar o canal de punições.`");
+        
+        message.delete();
+        message.guild.member(bUser).ban(bReason);
+        incidentchannel.send(banEmbed);
+        message.channel.send("`🔴 Membro Banido!`").then(msg => msg.delete(10000));
+        return;
+      }
 
     if(cmd === `${prefix}limpar`){
 
@@ -233,32 +258,6 @@ bot.on("message", async message => {
     
       return;
     }
-
-    if(cmd === `${prefix}ban`){
-        let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-        if(!bUser) return message.channel.send("`❌ Membro não encontrado`").then(msg => msg.delete(10000));
-        let bReason = args.join(" ").slice(22);
-        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("`❌ Você não tem permissão!`");
-        if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("`❌ Eu não posso banir essa pessoa.`");
-     
-        let banEmbed = new Discord.RichEmbed()
-        .setThumbnail(bUser.user.displayAvatarURL)
-        .addField("`👤 | Membro Banido:`", `${bUser}`, true)
-        .addField("`👨‍💼 | Banido por:`", `<@${message.author.id}>`, true)
-        .addField("`📦 | Membro ID:`", `${bUser.id}`, true)
-        .addField("`📋 | Banido no canal:`", `${message.channel}`, true)
-        .addField("`📂 | Motivo:`", `${bReason}`, true)
-        .setColor("#b70f0f")
-     
-        let incidentchannel = message.guild.channels.find(c => c.name == "🔴punições");
-        if(!incidentchannel) return message.channel.send("`❌ Não foi possível encontrar o canal de punições.`");
-        
-        message.delete();
-        message.guild.member(bUser).ban(bReason);
-        incidentchannel.send(banEmbed);
-        message.channel.send("`🔴 Membro Banido!`").then(msg => msg.delete(10000));
-        return;
-      }
 
     if(cmd === `${prefix}testeban`){
         if(message.author.id !== "231611977053503488") return;
