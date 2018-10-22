@@ -39,14 +39,14 @@ bot.on("message", async message => {
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
-    if (message.content.includes("discord.gg/")) {
+    if (message.startswith.content("discord.gg/")) {
         if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete();
             message.reply("`❌ Divulgação! - [Servidores]`");
         }
     }
 
-    if (message.content.includes("https://")) {
+    if (message.startswith.content("https://")) {
         if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete();
             message.reply("`❌ Divulgação! - [Links]`");
