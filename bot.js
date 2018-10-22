@@ -39,27 +39,6 @@ bot.on("message", async message => {
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
-    if (message.startswith.content("discord.gg/")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
-            message.delete();
-            message.reply("`❌ Divulgação! - [Servidores]`");
-        }
-    }
-
-    if (message.startswith.content("https://")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
-            message.delete();
-            message.reply("`❌ Divulgação! - [Links]`");
-        }
-    }
-
-    if (message.content.includes("https://discord.gg/")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
-            message.delete();
-            message.reply("`❌ Divulgação! - [Servidores]`");
-        }
-    }
-
     if (cmd === `${prefix}ping`) {
         if (!message.member.hasPermission("ADMINISTRATOR"));
         message.channel.send(`:exclamation:| Meu ping está ${Date.now() - message.createdTimestamp} ms.`)
