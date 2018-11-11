@@ -96,11 +96,11 @@ bot.on("message", async message => {
     }
 }
     
-    if(cmd === `${prefix}fecharticket`){
-        if (message.member.hasPermission("MANAGE_MESSAGES")){
-        message.channel.delete();
-        }
-    }
+ //   if(cmd === `${prefix}fecharticket`){
+  //      if (message.member.hasPermission("MANAGE_MESSAGES")){
+  //      message.channel.delete();
+  //      }
+  //  }
     
     if(cmd === `${prefix}skin`){
         let reason = args.slice(0).join(' ');
