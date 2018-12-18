@@ -46,7 +46,6 @@ bot.on("message", async message => {
     }
     
         if(cmd === `${prefix}msgsuporte`){
-        if (message.member.hasPermission("ADMINISTRATOR")){
             message.delete();
         message.channel.send(new Discord.RichEmbed().setColor(COR).setDescription("**Está com problemas ou dúvidas? clique na reação que deseja e aguarde o suporte.**\n\n<:Steve:510973155548856330> - Problemas com a sua conta.\n<:Boleto:510970296510054410> - Problemas com compras\n<:Cliente:510970368534773781> - Solicitar TAG cliente.\n<:form:496404450286632960> - Outras dúvidas.")).then(async msg => {
             const emoji = bot.emojis.find(c => c.name == "Steve");
@@ -93,8 +92,7 @@ bot.on("message", async message => {
                 await channel.setParent(category.id)
             })
         })
-    }
-}
+        }
     
  //   if(cmd === `${prefix}fecharticket`){
   //      if (message.member.hasPermission("MANAGE_MESSAGES")){
