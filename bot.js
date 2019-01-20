@@ -202,7 +202,7 @@ bot.on("message", async message => {
   
         try{
             let msg = new Discord.RichEmbed()
-            .setDescription("Parabéns! Agora você é um `💸 Cliente` em nossa loja :slight_smile:\n\n:tickets: **__Referências__**:\nAgora você pode deixar seu opinião em nosso canal de referências contando como foi sua experiência com nossa loja :wink:\n\n:star: **__Privilégios:__**\nAgora você possui acesso ao nosso canal de chat/voz e ao nosso Discord exclusivo para clientes!\n\n<:checklist:497189747865944074> **__Informações:__**\n**Site:** [__valleyshop.com.br__](https://valleyshop.com.br/)\n**Twitter:** [__@LojaValleyShop__](https://twitter.com/lojaValleyShop)\n**Discord Clientes:** __https://discord.gg/7E8MMnk__")
+            .setDescription("Parabéns! Agora você é um `💸 Cliente` em nossa loja :slight_smile:\n\n:tickets: **__Referências__**:\nAgora você pode deixar seu opinião em nosso canal de referências contando como foi sua experiência com nossa loja :wink:\n\n:star: **__Privilégios:__**\nAgora você possui acesso ao nosso canal de chat/voz e ao nosso Discord exclusivo para clientes!\n\n:clipboard:  **__Informações:__**\n**Site:** [__valleyshop.com.br__](https://valleyshop.com.br/)\n**Twitter:** [__@LojaValleyShop__](https://twitter.com/lojaValleyShop)\n**Discord Clientes:** __https://discord.gg/7E8MMnk__")
             .setColor(COR)
             await rMember.send(msg)
         }catch(e){
