@@ -62,6 +62,11 @@ bot.on("message", async message => {
         message.channel.send(skinembed);
 
     }
+    
+        if(cmd === `${prefix}say`){
+        message.delete();
+        message.channel.send(args.join(" "))
+    }
 
     if(cmd === `${prefix}avatar`){
         let reason = args.slice(0).join(' ');
